@@ -1,0 +1,8 @@
+<h2 class="text-center">编辑职位</h2>
+<br>
+<%= simple_form_for [:admin, @job] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+
+  <%= f.submit "发布" %>
+<% end %>
