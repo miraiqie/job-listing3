@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
 
   def index
-    @jobs = Job.all
+    @jobs = Job.where(:is_hidden => false).order('updated_at DESC')
   end
 
   def show
@@ -49,7 +49,7 @@ class JobsController < ApplicationController
 private
 
 def job_params
-  params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email)
+  params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
 end
 
 end
